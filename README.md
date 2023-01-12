@@ -38,10 +38,15 @@
 
 [对象是否相等](./mds/11、对象是否相等.md)
 
-[data Class](./mds/12、数据类和类委托.md)
-
 [作用超级大的object](./mds/13、作用超级大的object.md)
 
+[data Class](./mds/12、数据类和类委托.md)
+
+密封类
+
+内联类
+
+[Kotlin委托](./mds/Kotlin委托.md)
 
 # 高阶
 
@@ -57,7 +62,6 @@
 
 [扩展函数&扩展属性](./mds/22、扩展函数&扩展属性.md)
 
-[Kotlin委托](./mds/Kotlin委托.md)
 
 [协程](./mds/19、协程.md)
 
