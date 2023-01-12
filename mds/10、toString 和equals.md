@@ -36,7 +36,7 @@ class Client(val name: String, val postalcode: Int) {
     }
 }
 
-fun main() {
+fun sam.main() {
     val client = Client("Tom", 20)
     // 没有重写时
     // println(client.toString()) // aa.Client@60e53b93 默认打印对象地址  包名.类名@xxx（xxx为16进制数字）

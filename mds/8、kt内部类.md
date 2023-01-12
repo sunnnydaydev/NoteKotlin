@@ -10,7 +10,7 @@ import java.io.Serializable
  *
  */
 
-fun main(){
+fun sam.main(){
     val o = Outer()
     val i = o.InnerClass()
     println(i.getNumber())

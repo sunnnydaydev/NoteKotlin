@@ -23,7 +23,7 @@ let{
  * Created by sunnyDay on 2019/8/19 16:31
  *
  */
-fun main() {
+fun sam.main() {
       val xiaoHua = Stu()
       // case 1
       println(xiaoHua.let { it.getStuname() }) // it 代表xiaoHua这个对象
@@ -48,7 +48,7 @@ class Stu {
 ######  1、栗子
 
 ```kotlin
-fun main() {
+fun sam.main() {
 
     val xiaoHua = Stu()
     println(xiaoHua.getBagName())
@@ -99,7 +99,7 @@ class Stu {
  * Created by sunnyDay on 2019/8/19 16:31
  *
  */
-fun main() {
+fun sam.main() {
 
     test("abc")
 }
@@ -161,7 +161,7 @@ fun <T:Any>test(t:T){  // t默认为 Any？类型，也就是任意可空类型
  * Created by sunnyDay on 2019/8/19 18:07
  */
 public class Sunny {
-    public static void main(String[] args) {
+    public static void sam.main(String[] args) {
         test("Sunny",null);
     }
 

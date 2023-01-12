@@ -16,7 +16,7 @@ class LengthCount {
 }
 
 
-fun main(args: Array<String>){
+fun sam.main(args: Array<String>){
     val lengthCount = LengthCount()
     lengthCount.counter   // 内部就是调用的get方法（可以通过java文件调用我们的LengthCount测试）
     lengthCount.counter =3 // 内部就是调用的set方法 
@@ -72,7 +72,7 @@ class User() {
     get()="自定义getter"  // get换行
 }
 
-fun main(){
+fun sam.main(){
     val user = User()
     user.address = "sdfasf"
     println(user.address) // log:sdfasf我是后缀

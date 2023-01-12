@@ -30,7 +30,7 @@ object PayRoll{  //类名就是对象
     }
 }
 
-fun main(){
+fun sam.main(){
     val pay = PayRoll
     pay.test()
     
@@ -75,7 +75,7 @@ class PayRoll {
     }
 }
 
-fun main() {
+fun sam.main() {
     println(PayRoll.age)
     PayRoll.test()
 }
@@ -102,7 +102,7 @@ class PayRoll {
     }
 }
 
-fun main() {
+fun sam.main() {
     println(PayRoll.age) // 使用 companion 类似静态调用
     PayRoll.test()       // 通过伴生对象 访问类的私有成员
 }
@@ -168,7 +168,7 @@ object  Test{
 
 }
 
-fun main() {
+fun sam.main() {
      // 接口的匿名内部类写法
      Test.testPeople(object :People{
          override fun name() {

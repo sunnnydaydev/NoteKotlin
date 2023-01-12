@@ -294,7 +294,7 @@ fun <T,R>T.customLet(block: T.()->R):R{
     return block()
 }
 
-fun main(){
+fun sam.main(){
     // 测试自定义
     val str = "name"
 
