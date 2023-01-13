@@ -51,4 +51,12 @@ fun main() {
 }
 ```
 
+###### 3、探究
+
+data class 编译为java代码是怎样的呢？我们搞个demo然后反编译下试试
+
+```kotlin
+data class Person(val name: String)
+```
+
 

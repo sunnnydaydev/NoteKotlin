@@ -23,7 +23,7 @@ let{
  * Created by sunnyDay on 2019/8/19 16:31
  *
  */
-fun sam.main() {
+fun main() {
       val xiaoHua = Stu()
       // case 1
       println(xiaoHua.let { it.getStuname() }) // it 代表xiaoHua这个对象
@@ -48,7 +48,7 @@ class Stu {
 ######  1、栗子
 
 ```kotlin
-fun sam.main() {
+fun main() {
 
     val xiaoHua = Stu()
     println(xiaoHua.getBagName())
@@ -99,7 +99,7 @@ class Stu {
  * Created by sunnyDay on 2019/8/19 16:31
  *
  */
-fun sam.main() {
+fun main() {
 
     test("abc")
 }
@@ -114,64 +114,6 @@ fun test(name:String){
 
 
 
-###### 2、类型参数的可空性
-
-> 1、kotlin中所有的泛型类和泛型函数的类型都是可空的。
->
-> 2、Any代表任何类型
-
-```kotlin
-fun <T>test(t:T){  // t默认为 Any？类型，也就是任意可空类型 
-   //使用之前判空处理
-    if (t!=null){
-        println(t.toString()) 
-    }
-    
-}
-```
-
-
-
-> 如果不想让t为任意的可空类型需要规定非空上界（如下）
-
-```kotlin
-fun <T:Any>test(t:T){  // t默认为 Any？类型，也就是任意可空类型
-
-     // 使用之前不用判空
-        println(t.toString())
-
-}
-
-```
-
-
-
-
-
-###### 3、java的可空
-
-> 1、 @NotNull 不为null
->
-> 2、@Nullable 可null
-
-
-
-```java
-/**
- * Created by sunnyDay on 2019/8/19 18:07
- */
-public class Sunny {
-    public static void sam.main(String[] args) {
-        test("Sunny",null);
-    }
-
-    public static void  test( @NotNull String name,@Nullable String sex){
-       // @NotNull 不为null
-        //@Nullable 可null
-        System.out.println("测试:"+name+sex);
-    }
-}
-```
 
 
 
