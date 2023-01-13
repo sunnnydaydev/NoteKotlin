@@ -1,14 +1,12 @@
 package sam
 
+import java.util.Objects
 
 
 fun main() {
-    val s1 = ""
-    s1.isBlank()
-    s1.isEmpty()
-    s1.isNotBlank()
-    s1.isNotEmpty()
-    s1.isNullOrBlank()
-    s1.isNullOrEmpty()
+    println("".isNullOrBlank()) // true
+    println("      ".isBlank()) // true
+
+    val test1:Any = Any()
 }
 
