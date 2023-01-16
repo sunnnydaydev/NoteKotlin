@@ -26,11 +26,11 @@
 
 [类与对象](./mds/5、类与对象.md)
 
+[getter和setter](./mds/9、自定义%20getter%20setter.md)
+
 [关键词](./mds/6、KeyWord.md)
 
 [内部类](./mds/8、kt内部类.md)
-
-[getter和setter](./mds/9、自定义%20getter%20setter.md)
 
 [toString和equals](./mds/10、toString%20和equals.md)
 

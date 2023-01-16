@@ -3,16 +3,12 @@ package sam
 
 
 fun main() {
-
+    val (aName,aAge) = Animal("",1)
+    println("name:$aName")
+    println("age:$aAge")
 }
+data class Animal(val name: String,val age:Int)
 
-
-open class User(open val userName:String)
-class Person(val name:String):User(name){
-    // 重写父类的userName字段
-    override val userName: String
-        get() = name
-}
 
 
 

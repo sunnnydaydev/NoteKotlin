@@ -1,6 +1,6 @@
 # toString 和equals
 
-> 1、kotlin的tostring和java的一样需要时重写即可
+> 1、kotlin的toString和java的一样需要时重写即可
 >
 > 2、平时我们可以使用双“==”号代替equals方法（==的底层就是equals，重写equals时“==”也就变化，和重写后的equals作用一样）
 >
@@ -10,9 +10,7 @@
 
 
 
-```java
-
-
+```kotlin
 /**
  * Created by sunnyDay on 2019/7/12 20:16
  *
@@ -36,7 +34,7 @@ class Client(val name: String, val postalcode: Int) {
     }
 }
 
-fun sam.main() {
+fun main() {
     val client = Client("Tom", 20)
     // 没有重写时
     // println(client.toString()) // aa.Client@60e53b93 默认打印对象地址  包名.类名@xxx（xxx为16进制数字）

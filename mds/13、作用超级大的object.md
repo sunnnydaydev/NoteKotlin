@@ -1,12 +1,10 @@
 ###### 1、对象声明：创建单利易如反掌
 
-```java
-
+```kotlin
 /**
  * Created by sunnyDay on 2019/7/13 14:50
  *
  */
- 
 object PayRoll
 ```
 
@@ -19,10 +17,9 @@ object PayRoll
 
 （1）简单使用
 
-```java
+```kotlin
 /**
  * Created by sunnyDay on 2019/7/13 14:50
- *
  */
 object PayRoll{  //类名就是对象
     fun test(){
@@ -30,10 +27,9 @@ object PayRoll{  //类名就是对象
     }
 }
 
-fun sam.main(){
+fun main(){
     val pay = PayRoll
     pay.test()
-    
 }
 ```
 
@@ -49,7 +45,7 @@ fun sam.main(){
 
 （1）kotlin的companion 语法
 
-```java
+```kotlin
  companion object {
        // todo 这里声明 变量或者方法
     }
@@ -61,21 +57,18 @@ fun sam.main(){
 
 栗子：
 
-```java
+```kotlin
 class PayRoll {
     companion object {
-
         private val name: String = "tom"  //私有的还是不能访问
-
         val age: Int = 20
-
         fun test() {
             // todo nothing
         }
     }
 }
 
-fun sam.main() {
+fun main() {
     println(PayRoll.age)
     PayRoll.test()
 }
@@ -86,23 +79,19 @@ fun sam.main() {
 
 （2）伴生对象访问私有变量
 
-```java
+```kotlin
 class PayRoll {
     private val sex: Char = 'b'
-
     companion object {
-
-        private val name: String = "tom" 
-
+        private val name: String = "tom"
         val age: Int = 20
-
         fun test() {
             println(PayRoll().sex)  // 访问私有成员
         }
     }
 }
 
-fun sam.main() {
+fun main() {
     println(PayRoll.age) // 使用 companion 类似静态调用
     PayRoll.test()       // 通过伴生对象 访问类的私有成员
 }
@@ -122,7 +111,7 @@ fun sam.main() {
 
 (1)语法
 
-```java
+```kotlin
 //1 接口的匿名内部类语法
 object:接口名{
    方法实现
@@ -137,14 +126,9 @@ object：抽象类名（）{
 
 （2）simple 栗子：
 
-```java
-package aa
-
-import java.util.*
-
+```kotlin
 /**
  * Created by sunnyDay on 2019/7/13 16:05
- *
  */
 
 // 接口
@@ -165,10 +149,9 @@ object  Test{
     fun testAnimal(animal: Animal){
         animal.run()
     }
-
 }
 
-fun sam.main() {
+fun main() {
      // 接口的匿名内部类写法
      Test.testPeople(object :People{
          override fun name() {
@@ -182,21 +165,16 @@ fun sam.main() {
             println("I am fish，I swim ！！！")
         }
     })
-
-
 }
 ```
 
-
-
 （3）匿名内部类的变量接收
 
-```java
+```kotlin
  val p =object :People{
        override fun name() {
            println("I am Tom ！！！")
        }
-
    }
 ```
 
