@@ -40,7 +40,7 @@
 
 [扩展函数&扩展属性](./mds/22、扩展函数&扩展属性.md)
 
-[data Class](./mds/12、data class.md)
+[data Class](./mds/12、dataclass.md)
 
 密封类
 
