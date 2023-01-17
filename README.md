@@ -30,8 +30,6 @@
 
 [关键词](./mds/6、KeyWord.md)
 
-[内部类](./mds/8、kt内部类.md)
-
 [toString和equals](./mds/10、toString%20和equals.md)
 
 [对象是否相等](./mds/11、对象是否相等.md)
@@ -43,6 +41,8 @@
 [数据类dataClass](./mds/12、dataclass.md)
 
 [密封类sealedClass](./mds/sealedclass.md)
+
+[内部类](./mds/8、kt内部类.md)
 
 内联类
 
@@ -56,11 +56,11 @@
 
 [Kotlin高阶函数的应用](./mds/Kotlin高阶函数的应用.md)
 
+内联函数
+
 [Kotlin标准函数let,with,run,apply](./mds/Kotlin标准函数：let,with,run,apply.md)
 
 [Kotlin标准函数use](./mds/Kotlin标准函数：use.md)
-
-
 
 [协程](./mds/19、协程.md)
 
