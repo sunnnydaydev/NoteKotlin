@@ -1,13 +1,17 @@
 package sam
 
 
-
 fun main() {
-    val (aName,aAge) = Animal("",1)
-    println("name:$aName")
-    println("age:$aAge")
+
+    val map = hashMapOf("userName" to "kate", "userSex" to "girl")
+
+    val (key,value) = map
+
+    for ((key,value) in map){
+        println("key:$key value:$value")
+    }
 }
-data class Animal(val name: String,val age:Int)
+
 
 
 

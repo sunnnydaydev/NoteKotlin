@@ -145,6 +145,45 @@ fun main() {
 data class Animal(val name: String,val age:Int)
 ```
 
-方法、映射都可使用结构声明，[参考](https://www.kotlincn.net/docs/reference/multi-declarations.html)
+方法、映射都可使用结构声明：
+
+（1）方法的解结构
+
+方法的解构其实还是data class的解构，方法的返回值要是data class，普通的class是无法解构的。
+
+```kotlin
+data class Result(val result: Int, val status: Status)
+fun function(): Result {
+    // 各种计算
+
+    return Result(result, status)
+}
+
+// 现在，使用该函数：
+val (result, status) = function()
+```
+
+（2）映射解构
+
+这个一般用来进行遍历
+
+```kotlin
+fun main() {
+    val map = hashMapOf("userName" to "kate", "userSex" to "girl")
+    for ((key,value) in map){
+        println("key:$key value:$value")
+    }
+}
+```
+
+（3）未使用的变量使用下划线代替
+
+未使用的解构变量可以使用下划线 "_"替代
+
+```kotlin
+val (_, status) = getResult()
+```
+
+[解构参考](https://www.kotlincn.net/docs/reference/multi-declarations.html)
 
 
