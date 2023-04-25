@@ -181,6 +181,33 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
+且看一个变形，这样也是可以的
+
+```kotlin
+
+// 定义
+
+class A(
+    private val context: Context,
+    private val onGooglePayClick: () -> Unit = {}
+)
+
+// 使用
+
+class B{
+
+fun test(){
+ A(requireActivity(), onGooglePayClick = ::onGooglePayClick)
+ }
+
+ private fun onGooglePayClick(){
+
+ }
+
+}
+
+```
+
 注意点：
 
 （1）invoke方法执行的参数与高阶函数接受的参数类型是一致的。
