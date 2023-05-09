@@ -30,17 +30,17 @@ fun main() {
 
 }
 
-abstract class BaseActivity {
-   abstract val resId:Int
-
-    fun onCreate() {
-        setContentView(resId)
-    }
-
-    private fun setContentView(resId: Int) {}
+class Car{
+    fun run(){}
 }
 
-class MainActivity:BaseActivity(){
-    override val resId: Int = R.layout.layout_main_activity
+class Tom{
+    // 定义延迟初始化属性
+    lateinit var car: Car
+    fun doWork(){
+        if (::car.isInitialized){
+            car.run()
+        }
+    }
 }
 
