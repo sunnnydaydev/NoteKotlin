@@ -1,4 +1,4 @@
-package sam
+package abs
 
 sealed class SealedClass {
     data class LoadingState(val state: String):SealedClass()

@@ -482,10 +482,10 @@ flow {
             }.collect {
                         Log.d(TAG, "current Thread:${Thread.currentThread()}")
                     }
-2021-09-29 14:50:54.034 18358-18392/com.example.algorithm D/CoroutineActivity: current Thread:Thread[DefaultDispatcher-worker-1,5,sam.main]
-2021-09-29 14:50:54.034 18358-18392/com.example.algorithm D/CoroutineActivity: current Thread:Thread[DefaultDispatcher-worker-1,5,sam.main]
-2021-09-29 14:50:54.037 18358-18358/com.example.algorithm D/CoroutineActivity: current Thread:Thread[sam.main,5,sam.main]
-2021-09-29 14:50:54.037 18358-18358/com.example.algorithm D/CoroutineActivity: current Thread:Thread[sam.main,5,sam.main]
+2021-09-29 14:50:54.034 18358-18392/com.example.algorithm D/CoroutineActivity: current Thread:Thread[DefaultDispatcher-worker-1,5,abs.main]
+2021-09-29 14:50:54.034 18358-18392/com.example.algorithm D/CoroutineActivity: current Thread:Thread[DefaultDispatcher-worker-1,5,abs.main]
+2021-09-29 14:50:54.037 18358-18358/com.example.algorithm D/CoroutineActivity: current Thread:Thread[abs.main,5,abs.main]
+2021-09-29 14:50:54.037 18358-18358/com.example.algorithm D/CoroutineActivity: current Thread:Thread[abs.main,5,abs.main]
 ```
 
 ```
@@ -505,11 +505,11 @@ flow {
                     }.flowOn(Dispatchers.IO).collect {
                         Log.d(TAG, "current Thread:${Thread.currentThread()}") // ���̣߳�Ĭ�ϣ�
                     }
-2021-09-29 14:55:11.190 18518-18554/com.example.algorithm D/CoroutineActivity: current Thread:Thread[DefaultDispatcher-worker-1,5,sam.main]
-2021-09-29 14:55:11.191 18518-18554/com.example.algorithm D/CoroutineActivity: current Thread:Thread[DefaultDispatcher-worker-1,5,sam.main]
-2021-09-29 14:55:11.223 18518-18518/com.example.algorithm D/CoroutineActivity: current Thread:Thread[sam.main,5,sam.main]
-2021-09-29 14:55:11.224 18518-18555/com.example.algorithm D/CoroutineActivity: current Thread:Thread[DefaultDispatcher-worker-2,5,sam.main]
-2021-09-29 14:55:11.268 18518-18518/com.example.algorithm D/CoroutineActivity: current Thread:Thread[sam.main,5,sam.main]
+2021-09-29 14:55:11.190 18518-18554/com.example.algorithm D/CoroutineActivity: current Thread:Thread[DefaultDispatcher-worker-1,5,abs.main]
+2021-09-29 14:55:11.191 18518-18554/com.example.algorithm D/CoroutineActivity: current Thread:Thread[DefaultDispatcher-worker-1,5,abs.main]
+2021-09-29 14:55:11.223 18518-18518/com.example.algorithm D/CoroutineActivity: current Thread:Thread[abs.main,5,abs.main]
+2021-09-29 14:55:11.224 18518-18555/com.example.algorithm D/CoroutineActivity: current Thread:Thread[DefaultDispatcher-worker-2,5,abs.main]
+2021-09-29 14:55:11.268 18518-18518/com.example.algorithm D/CoroutineActivity: current Thread:Thread[abs.main,5,abs.main]
 ```
 
 # ȡ��Flow

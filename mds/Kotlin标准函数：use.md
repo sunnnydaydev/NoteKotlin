@@ -60,7 +60,7 @@ BufferedReader这个类实现了Closeable接口，并且在close中进行了资�
 /**
  * Create by SunnyDay on 16:45 2022/01/08
  */
-fun sam.main() {
+fun abs.main() {
 
     val file = File("F://test.txt")
     if (!file.exists()) {

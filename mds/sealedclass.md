@@ -42,7 +42,7 @@ enum class EnumClass(private val id: Int) {
 
 ```java
 // 1、abstract类
-public abstract class SealedClass {
+public abs class SealedClass {
     
     //2、构造私有了，不允许直接创建密封类的实例
    private SealedClass() {

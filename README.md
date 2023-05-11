@@ -30,6 +30,8 @@
 
 [关键词](./mds/6、KeyWord.md)
 
+[接口与抽象类](./mds/7、接口与抽象类.md)
+
 [toString和equals](./mds/10、toString%20和equals.md)
 
 [对象是否相等](./mds/11、对象是否相等.md)

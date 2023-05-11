@@ -137,8 +137,8 @@ interface People {
 }
 
 // 抽象类
-abstract class Animal{
-    abstract fun run()
+abs class Animal{
+    abs fun run()
 }
 
 // 测试类
