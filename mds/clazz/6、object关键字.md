@@ -3,7 +3,6 @@
 ```kotlin
 /**
  * Created by sunnyDay on 2019/7/13 14:50
- *
  */
 object PayRoll
 ```
@@ -54,8 +53,6 @@ fun main(){
 
 
 > 效果可以使用类名直接调用companion内部声明的 变量或者方法（类似java的静态调用）
-
-栗子：
 
 ```kotlin
 class PayRoll {

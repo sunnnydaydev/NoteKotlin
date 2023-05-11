@@ -1,74 +1,76 @@
 # kotlin
 
-# 基础
+# 一、基础
 
-[入门了解](./mds/1、入门了解.md)
+[入门了解](mds/basic/1、入门了解.md)
 
-[常见数据类型](./mds/2、常见数据类型.md)
+[常见数据类型](mds/basic/2、常见数据类型.md)
 
-[条件语句](./mds/3、条件语句.md)
+[条件语句](mds/basic/3、条件语句.md)
 
-[循环](./mds/4、循环.md)
+[循环](mds/basic/4、循环.md)
 
-[可空性](./mds/14、可空性.md)
+[可空性](mds/basic/5、可空性.md)
 
-[kt常见的运算符](./mds/15、kt常见的运算符.md)
+[kt常见的运算符](mds/basic/6、kt常见的运算符.md)
 
-[基本数据类型和其他数据类型](./mds/17、基本数据类型和其他数据类型.md)
+[基本数据类型和其他数据类型](mds/basic/7、基本数据类型和其他数据类型.md)
 
-[集合](./mds/集合.md)
+[集合](mds/basic/8、集合.md)
 
 注解
 
 泛型
 
-# 类与对象
+# 二、类与对象
 
-[类与对象](./mds/5、类与对象.md)
+[类与对象](mds/clazz/1、类与对象.md)
 
-[getter和setter](./mds/9、自定义%20getter%20setter.md)
+[关键词](mds/clazz/2、修饰符.md)
 
-[关键词](./mds/6、KeyWord.md)
+[kotlin的getter和setter](mds/clazz/3、kotlin的getter和setter.md)
 
-[接口与抽象类](./mds/7、接口与抽象类.md)
+[接口与抽象类](mds/clazz/4、接口与抽象类.md)
 
-[toString和equals](./mds/10、toString%20和equals.md)
+[kotlin的equals方法](mds/clazz/5、kotlin的equals方法.md)
 
-[对象是否相等](./mds/11、对象是否相等.md)
+[object关键字](mds/clazz/6、object关键字.md)
 
-[作用超级大的object](./mds/13、作用超级大的object.md)
+[扩展函数与扩展属性](mds/clazz/7、扩展函数与扩展属性.md)
 
-[扩展函数&扩展属性](./mds/22、扩展函数&扩展属性.md)
+[数据类dataClass](mds/clazz/8、数据类dataClass.md)
 
-[数据类dataClass](./mds/12、dataclass.md)
+[密封类sealedClass](mds/clazz/9、密封类sealedClass.md)
 
-[密封类sealedClass](./mds/sealedclass.md)
+[内部类](mds/clazz/10、kt内部类.md)
 
-[内部类](./mds/8、kt内部类.md)
+
+类型别名
 
 内联类
 
-[Kotlin委托](./mds/Kotlin委托.md)
+[Kotlin委托](mds/clazz/Kotlin委托.md)
 
-# 高阶
+# 三、高阶
 
-[高阶函数](./mds/18、高阶函数.md)
+[高阶函数](mds/high/1.0、高阶函数.md)
 
-[Kotlin高阶函数收获](./mds/Kotlin高阶函数收获.md)
+[Kotlin高阶函数收获](mds/high/1.1、Kotlin高阶函数收获.md)
 
-[Kotlin高阶函数的应用](./mds/Kotlin高阶函数的应用.md)
+[Kotlin高阶函数的应用](mds/high/1.2、Kotlin高阶函数的应用.md)
+
+
+[Kotlin标准函数let,with,run,apply](mds/high/2.0、Kotlin标准函数：let,with,run,apply.md)
+
+[Kotlin标准函数use](mds/high/2.1、Kotlin标准函数：use.md)
 
 内联函数
 
-[Kotlin标准函数let,with,run,apply](./mds/Kotlin标准函数：let,with,run,apply.md)
+[协程](mds/high/3.0、协程.md)
 
-[Kotlin标准函数use](./mds/Kotlin标准函数：use.md)
+[协程小结](mds/high/3.1、协程小结.md)
 
-[协程](./mds/19、协程.md)
-
-[协程小结](./mds/20、协程小结.md)
-
-[Flow](./mds/21、Flow.md)
+[Flow](mds/high/4、Flow.md)
 
 
 # 参考

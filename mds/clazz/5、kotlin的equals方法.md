@@ -1,4 +1,4 @@
-# toString 和equals
+# toString和equals
 
 > 1、kotlin的toString和java的一样需要时重写即可
 >
@@ -6,16 +6,14 @@
 >
 > 3、三个的“===”号比较对象时比较的是引用（内存地址）
 >
-> ps：没有重弄写equals时两个的“==”比较对象时也是比较对象引用
-
-
+> 4、没有重弄写equals时两个的“==”比较对象时也是比较对象引用
 
 ```kotlin
 /**
  * Created by sunnyDay on 2019/7/12 20:16
  *
  */
-class Client(val name: String, val postalcode: Int) {
+class Client(private val name: String,private val postalcode: Int) {
 
     // 重写 toString
     override fun toString(): String {
