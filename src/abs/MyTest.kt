@@ -32,8 +32,25 @@ interface B {
 
 class D : A, B {
     override fun foo() {
-       println("D")
+        println("D")
         super<A>.foo()
         super<B>.foo()
     }
+}
+
+open class Test( age: Int,  name: String){
+    private val age:Int
+    private val name:String
+    init {
+        this.age = age
+        this.name= name
+    }
+}
+
+class LengthCount {
+    var counter = 0
+}
+
+fun main() {
+     Test(18,"")
 }
