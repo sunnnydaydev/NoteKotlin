@@ -38,19 +38,24 @@ class D : A, B {
     }
 }
 
-open class Test( age: Int,  name: String){
-    private val age:Int
-    private val name:String
+open class Test(age: Int, name: String) {
+    private val age: Int
+    private val name: String
+
     init {
         this.age = age
-        this.name= name
+        this.name = name
     }
 }
 
 class LengthCount {
-    var counter = 0
+    //注意val类型的变量自定义get时是不允许初始化的，如 val counter: Int = 0这样写法编译器报错
+    var counter:Int = 0
+        get() = 10
 }
 
 fun main() {
-     Test(18,"")
+    val lengthCount = LengthCount()
+    lengthCount.counter = 20
+    println("counter:${lengthCount.counter}")
 }

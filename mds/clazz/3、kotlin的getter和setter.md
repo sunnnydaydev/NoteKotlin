@@ -23,19 +23,46 @@ fun main(args: Array<String>){
 
 ###### 2、自定义getter和setter
 
-(1)可以改变其访问性
+(1)自定义get
 
 ```kotlin
 class LengthCount {
-    var counter = 0
-        private set //外部访问不了set
+    //自定义get后，每次通过对象访问该字段时访问的是自定义get返回的值，如下🌰，counter的值永远是18
+    var counter: Int = 0
+        get() = 18
 }
 
+fun main() {
+    val lengthCount = LengthCount()
+    lengthCount.counter = 20
+    println("counter:${lengthCount.counter}")
+}
 ```
-（2）自定义get
 
+```kotlin
+class LengthCount {
+    //注意val类型的变量自定义get时是不允许初始化的，如 val counter: Int = 0这样写法编译器报错
+    val counter: Int
+        get() = 18
+}
+```
 
-（2）自定义set
+总结下，大致语法是这样的
+
+```kotlin
+// var 写法,字段必须定义时初始化
+class LengthCount {
+    var counter: Int = 0
+        get() = 18
+}
+// val 写法，字段定义时不允许初始化
+class LengthCount {
+    val counter: Int
+        get() = 18
+}
+```
+
+(2)自定义set
 
 ```kotlin
 class LengthCount {
@@ -47,6 +74,15 @@ class LengthCount {
 }
 ```
 
+(3)可以改变其访问性
+
+```kotlin
+class LengthCount {
+    var counter = 0
+        private set //外部访问不了set,相当于val功能
+}
+
+```
 ###### 3、成员变量的初始化
 
 普通成员变量定义时为啥要求初始化？？？如下：
@@ -59,7 +95,7 @@ class Test{
 ```
 如上我们定义好后会看到编译器报红提示，原因很简单 age中隐含默认 getter 和 setter，name 中隐含默认 getter。要想使用二者的值必须先初始化
 
-初始化时有三种方式：
+初始化时有如下几种方式：
 
 ```kotlin
 

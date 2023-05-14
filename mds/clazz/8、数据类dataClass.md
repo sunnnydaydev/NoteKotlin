@@ -130,7 +130,7 @@ public final class Person {
 }
 ```
 
-###### 4、数据类的解结声明
+###### 4、数据类的解构声明
 
 对于data class我们可以以解结声明方式定义变量 ->
 
@@ -183,6 +183,10 @@ fun main() {
 ```kotlin
 val (_, status) = getResult()
 ```
+
+（4）系统提供的数据类
+
+标准库提供了 Pair 与 Triple
 
 [解构参考](https://www.kotlincn.net/docs/reference/multi-declarations.html)
 
