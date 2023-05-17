@@ -49,7 +49,11 @@
 
 内联类
 
-[Kotlin委托](mds/clazz/Kotlin委托.md)
+[Kotlin委托](mds/clazz/11、Kotlin委托.md)
+
+[Nothing类](mds/clazz/12、Nothing类.md)
+
+
 
 # 三、高阶
 
