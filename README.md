@@ -63,6 +63,8 @@
 
 [Kotlin高阶函数的应用](mds/high/1.2、Kotlin高阶函数的应用.md)
 
+[Kotlin高阶函数总结](mds/high/1.3、Kotlin高阶函数总结.md)
+
 
 [Kotlin标准函数let,with,run,apply](mds/high/2.0、Kotlin标准函数：let,with,run,apply.md)
 
