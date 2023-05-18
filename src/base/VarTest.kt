@@ -5,11 +5,10 @@ package base
  **/
 
 
-fun main (){
-   TODO("todo")
+fun main() {
+
 }
 
-
-fun test():Nothing{
-   throw NotImplementedError("you need not implemented this method!")
+fun test(listener: ()->String) {
+    listener.invoke()
 }
