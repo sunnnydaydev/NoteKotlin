@@ -26,17 +26,17 @@
 
 [类与对象](mds/clazz/1、类与对象.md)
 
-[关键词](mds/clazz/2、修饰符.md)
+[kotlin的成员属性](mds/clazz/2、kotlin的成员属性.md)
 
-[kotlin的成员属性](mds/clazz/3、kotlin的成员属性.md)
+[接口与抽象类](mds/clazz/3、接口与抽象类.md)
 
-[接口与抽象类](mds/clazz/4、接口与抽象类.md)
+[可见修饰符](mds/clazz/4、可见修饰符.md)
 
-[kotlin的equals方法](mds/clazz/5、kotlin的equals方法.md)
+[扩展函数与扩展属性](mds/clazz/5、扩展函数与扩展属性.md)
+
+[kotlin的equals方法](mds/clazz/7、kotlin的equals方法.md)
 
 [object关键字](mds/clazz/6、object关键字.md)
-
-[扩展函数与扩展属性](mds/clazz/7、扩展函数与扩展属性.md)
 
 [数据类dataClass](mds/clazz/8、数据类dataClass.md)
 
