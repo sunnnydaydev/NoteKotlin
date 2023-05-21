@@ -28,7 +28,7 @@
 
 [关键词](mds/clazz/2、修饰符.md)
 
-[kotlin的getter和setter](mds/clazz/3、kotlin的getter和setter.md)
+[kotlin的成员属性](mds/clazz/3、kotlin的成员属性.md)
 
 [接口与抽象类](mds/clazz/4、接口与抽象类.md)
 

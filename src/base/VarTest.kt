@@ -38,4 +38,8 @@ fun main() {
 
 class Animal {
     override fun toString() = "i am Animal"
+
+    companion object{
+        private val name:String = ""
+    }
 }

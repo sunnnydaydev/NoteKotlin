@@ -131,3 +131,16 @@ open class Test( age: Int,  name: String){
 }
 
 ```
+
+###### 4、幕后字段field
+
+field叫幕后字段，kt定义好的，只能在set、get块中使用。
+
+
+###### 5、编译期常量
+
+- 顶层属性
+- object 关键字定义类内部的属性
+- companion object 快内的属性
+- 以 String 或原生类型值初始化
+
