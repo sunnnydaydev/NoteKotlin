@@ -5,15 +5,35 @@ package base
  **/
 
 fun main() {
-    val transformResult1 = transform{ 3 }
-    println(transformResult1)
-}
+    //3
+    println("111".let {
+        it.length
+    })
 
-/**
- *把任意一个函数返回值转化为String输出
- * */
-fun transform(methodAction: () -> Any): String {
-    return methodAction.invoke().toString()
+    //i am Animal
+    println(Animal().let {
+        it.toString()
+    })
+
+    //base.Animal
+    println(Animal().let {
+        it.javaClass
+    })
+
+    //kotlin.Unit
+    println(
+        "111".let {
+
+        }
+    )
+
+    //null
+    println(
+        "111".let {
+            null
+        }
+    )
+
 }
 
 class Animal {
