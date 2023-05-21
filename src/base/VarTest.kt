@@ -5,10 +5,17 @@ package base
  **/
 
 fun main() {
-
+    val transformResult1 = transform{ 3 }
+    println(transformResult1)
 }
 
-fun test(name: String) {
-    println(name.length)
-  //  name = "ddd" //Val cannot be reassigned
+/**
+ *把任意一个函数返回值转化为String输出
+ * */
+fun transform(methodAction: () -> Any): String {
+    return methodAction.invoke().toString()
+}
+
+class Animal {
+    override fun toString() = "i am Animal"
 }
