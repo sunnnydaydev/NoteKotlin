@@ -6,36 +6,21 @@ package base
 
 
 
-fun Animal.desc(){
-    // this.getName()
-    // this.setName("")
-    println("i am animal:")
-}
 
-class VarTest{
-    /**
-     * 为Animal定义一个扩展函数
-     * */
-
-    /**
-     * 使用扩展函数
-     * */
-    fun test(){
-        Animal().desc()
+private var Animal.type: String
+    get() = "fish" //1、get 相当于赋值
+    set(value) {
+       // field = value //2、field 不能用， type 无法通过field 更改
+        test = "hahha" // 可以更改其他属性值
     }
-}
 
 
-class Person{
-    fun test(){
-        Animal().desc()
-    }
-}
 
 
 class Animal {
+    var test =""
     private var name = ""
-    private var type = ""
+
 
     fun setName(name: String) {
         this.name = name
@@ -43,13 +28,5 @@ class Animal {
 
     fun getName(): String {
         return name
-    }
-
-    fun setType(type: String) {
-        this.type = type
-    }
-
-    fun getType(): String {
-        return type
     }
 }
