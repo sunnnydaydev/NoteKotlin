@@ -4,42 +4,52 @@ package base
  * Create by SunnyDay 2023/04/26 20:54:41
  **/
 
-fun main() {
-    //3
-    println("111".let {
-        it.length
-    })
 
-    //i am Animal
-    println(Animal().let {
-        it.toString()
-    })
 
-    //base.Animal
-    println(Animal().let {
-        it.javaClass
-    })
-
-    //kotlin.Unit
-    println(
-        "111".let {
-
-        }
-    )
-
-    //null
-    println(
-        "111".let {
-            null
-        }
-    )
-
+fun Animal.desc(){
+    // this.getName()
+    // this.setName("")
+    println("i am animal:")
 }
 
-class Animal {
-    override fun toString() = "i am Animal"
+class VarTest{
+    /**
+     * 为Animal定义一个扩展函数
+     * */
 
-    companion object{
-        private val name:String = ""
+    /**
+     * 使用扩展函数
+     * */
+    fun test(){
+        Animal().desc()
+    }
+}
+
+
+class Person{
+    fun test(){
+        Animal().desc()
+    }
+}
+
+
+class Animal {
+    private var name = ""
+    private var type = ""
+
+    fun setName(name: String) {
+        this.name = name
+    }
+
+    fun getName(): String {
+        return name
+    }
+
+    fun setType(type: String) {
+        this.type = type
+    }
+
+    fun getType(): String {
+        return type
     }
 }
