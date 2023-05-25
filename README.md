@@ -34,11 +34,13 @@
 
 [扩展函数与扩展属性](mds/clazz/5、扩展函数与扩展属性.md)
 
+[数据类dataClass](mds/clazz/6、数据类dataClass.md)
+
 [kotlin的equals方法](mds/clazz/7、kotlin的equals方法.md)
 
-[object关键字](mds/clazz/6、object关键字.md)
+[object关键字](mds/clazz/8、object关键字.md)
 
-[数据类dataClass](mds/clazz/8、数据类dataClass.md)
+
 
 [密封类sealedClass](mds/clazz/9、密封类sealedClass.md)
 
