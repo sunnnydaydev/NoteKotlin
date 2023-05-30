@@ -1,60 +1,104 @@
 # data class
 
-给类加上data关键字即可，编译器自动生成 符合你的类的toString、equals、hashcode、copy方法。
+定义类时加上data关键字时编译器自动生成类的toString、equals、hashcode、copy、componentN。
 
-###### 1、栗子
+###### 1、栗子🌰
 
 ```kotlin
-
-// data  关键字
 data class Person(val name: String)
 
 fun main() {
-    val person = Person("tom")
-    val person1 = Person("tom")
-    val set = hashSetOf(person)
-
-    println(set.contains(person1))
-    println(person.toString())
-    println(person == person1)
-    // log:
-    // true
-    // Person(name=tom)
-    // true
+    Person("tom").apply {
+        println("toString:${toString()}")
+    }
 }
+//toString:Person(name=tom)
 ```
 
-注意：data class 要求
+###### 2、data class 注意点
 
 - 主构造函数需要至少有一个参数
 - 主构造函数的所有参数需要标记为 val 或 var
 - 数据类不能是抽象、开放、密封或者内部的。
-- （在1.1之前）数据类只能实现接口
-- 如果在数据类体中有显式实现 equals()、 hashCode() 或者 toString()，或者这些函数在父类中有 final 实现，那么不会生成这些函数，而会使用现有函数。
+- 在kotlin1.1之前数据类只能实现接口
+- 如果在数据类体中有显式实现 equals、 hashCode、toString这些函数时数据类不会生成这些函数。 或者这些函数在父类中有 final 实现，那么数据类不
+会生成这些函数。
+- 不允许为 componentN、 copy、函数提供显式实现
+- 在 JVM 中，如果生成的类需要含有一个无参的构造函数，则所有的属性必须指定默认值。
+
+```kotlin
+data class User(val name: String = "", val age: Int = 0)
+```
+- 编译器自动为主构造函数中声明的所有属性生成toString、copy、equals等方法。注意必须是主构造函数。
 
 
 ###### 2、copy 方法
 
-在很多情况下，我们需要复制一个对象改变它的一些属性，但其余部分保持不变。 copy() 函数就是为此而生成。
+在很多情况下，我们需要复制一个对象改变它的一些属性，但其余部分保持不变。 copy函数就是为此而生成。
 
-- 使用上文的data关键字后编译器自动生成
-- 作用生成类实例的副本（和原来实例hash地址不一样）
 
 ```kotlin
+data class Person(val name: String)
 fun main() {
     val person = Person("Tom")
-    println("person 内存地址:${person.hashCode()}")
     val copyPerson = person.copy(name = "Kate")
-    println("copyPerson 内存地址:${copyPerson.hashCode()}")
+    println("person[name:${person.name},hashCode:${person.hashCode()}]")
+    println("copyPerson[name:${copyPerson.name},hashCode:${copyPerson.hashCode()}]")
 }
 
-data class Person(val name: String)
+// log ->
+person[name:Tom,hashCode:84274]
+copyPerson[name:Kate,hashCode:2331239]
 ```
-log ->
 
-person 内存地址:84274
+一个简单的🌰来说下了copy的用法，那么copy的应用场景是啥呢？安卓mvi中有这样一个场景，需要更新哪些数据就copy重新赋值即可：
 
-copyPerson 内存地址:2331239
+```kotlin
+
+data class ViewState(
+    val loadingState: String = "empty",//主页加载状态
+    val jsonString: String = "{}", // 主页数据
+    val commitButtonEnable: Boolean = false // 主页按钮状态
+)
+
+class MainActivity {
+    /**
+     * 模拟回调，当ViewModel中的ViewState更改时这里会收到回调。
+     * */
+    fun onViewStateUpdate(state: ViewState) {
+        // todo 数据驱动UI
+        // 0、进度条处理（根据loadingState）
+        // 1、填充主页数据（根据jsonString）
+        // 2、处理按钮状态（根据commitButtonEnable）
+    }
+}
+
+class MainViewModel {
+
+    // 定义个字段，这个字段会受到监听，当值更改时自动把数据回调到MainActivity#onViewStateUpdate中（模拟，具体不实现了）
+    var viewState: ViewState = ViewState()
+
+    /**
+     * 业务1、模拟网络请求，请求主页面数据。从网路拿到数据，回流给UI层
+     * */
+    fun handleNetData() {
+        viewState = viewState.copy(
+            loadingState = "data", // 加载状态改为data，代表请求网络成功拿到数据
+            jsonString = "{\"firstName\": \"Brett\"}" // 从网络获取到的数据
+        )
+    }
+
+    /**
+     * 业务2、模拟按钮状态的处理，当用户输入的内容大于8位时按钮可用。
+     * 注意 注意 注意 这里未更改json值，因为根据业务json不应该改，所以copy时不用重新赋值代表使用上次最新的值。更新数据copy时只copy我们想要
+     * 更新的即可，如下只更新loadingState、commitButtonEnable
+     * */
+    fun changeButtonStateByContent(userInput: String){
+        viewState = viewState.copy(loadingState = "empty", commitButtonEnable =  userInput.length > 8)
+    }
+
+}
+```
 
 ###### 3、探究
 
