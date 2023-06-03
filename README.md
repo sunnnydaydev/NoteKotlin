@@ -18,9 +18,10 @@
 
 [集合](mds/basic/8、集合.md)
 
+[泛型](mds/basic/泛型.md)
+
 注解
 
-泛型
 
 # 二、类与对象
 
@@ -36,12 +37,12 @@
 
 [数据类dataClass](mds/clazz/6、数据类dataClass.md)
 
-[kotlin的equals方法](mds/clazz/7、kotlin的equals方法.md)
+[kotlin的equals方法](mds/clazz/kotlin的equals方法.md)
 
 [object关键字](mds/clazz/8、object关键字.md)
 
 
-[密封类sealedClass](mds/clazz/9、密封类sealedClass.md)
+[密封类sealedClass](mds/clazz/7、密封类sealedClass.md)
 
 [内部类](mds/clazz/10、kt内部类.md)
 

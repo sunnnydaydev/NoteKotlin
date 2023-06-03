@@ -41,8 +41,8 @@ enum class EnumClass(private val id: Int) {
 ###### 观察下生成的密封类java代码
 
 ```java
-// 1、abstract类
-public abs class SealedClass {
+// 1、密封类是abstract类
+public abstract class SealedClass {
     
     //2、构造私有了，不允许直接创建密封类的实例
    private SealedClass() {
@@ -53,7 +53,7 @@ public abs class SealedClass {
       this();
    }
    
-   // 3、子类 final class
+   // 3、密封类的子类是 static final class
    public static final class LoadingState extends SealedClass {
       @NotNull
       private final String state;
@@ -117,7 +117,7 @@ public abs class SealedClass {
          }
       }
    }
-    // 3、子类final
+    // 3、子类static final
    public static final class Login extends SealedClass {
       @NotNull
       public static final Login INSTANCE;
@@ -138,8 +138,9 @@ public abs class SealedClass {
 
 - 要声明一个密封类，需要在类名前面添加 sealed 修饰符。
 - 虽然密封类也可以有子类，但是所有子类都必须在与密封类自身相同的文件中声明。 在 Kotlin 1.1 之前， 该规则更加严格：子类必须嵌套在密封类声明的内部。
-- 扩展密封类子类的类（间接继承者）可以放在任何位置，而无需在同一个文件中
-- 使用密封类的关键好处在于使用 when 表达式 的时候，如果能够验证语句覆盖了所有情况，就不需要为该语句再添加一个 else 子句了。当然，这只有当你用 when 作为表达式（使用结果）而不是作为语句时才有用
+- 扩展密封类子类的类可以放在任何位置，而无需在同一个文件中
+- 使用密封类的关键好处在于使用 when 表达式 的时候，如果能够验证语句覆盖了所有情况，就不需要为该语句再添加一个 else 子句了。当然，这只有当你用
+when 作为表达式（使用结果）而不是作为语句时才有用
 
 
 ###### when 应用
