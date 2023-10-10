@@ -17,7 +17,7 @@ public class GenericTest1 {
 
         Collection<Father> myList2 = new MyList<>();
 
-        myList1.addAll(myList2);
+       // myList1.addAll(myList2); // 编译异常
     }
 }
 

@@ -22,7 +22,6 @@
 
 [泛型](mds/basic/泛型.md)
 
-注解
 
 
 # 二、类与对象
@@ -43,15 +42,11 @@
 
 [object关键字](mds/clazz/8、object关键字.md)
 
-
 [密封类sealedClass](mds/clazz/7、密封类sealedClass.md)
 
 [内部类](mds/clazz/10、kt内部类.md)
 
-
-类型别名
-
-内联类
+[内联类](mds/clazz/内联类.md)
 
 [Kotlin委托](mds/clazz/11、Kotlin委托.md)
 
