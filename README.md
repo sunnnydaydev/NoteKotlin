@@ -69,7 +69,7 @@
 
 [Kotlin标准函数use](mds/high/2.1、Kotlin标准函数：use.md)
 
-内联函数
+[内联函数](mds/high/内联函数.md)
 
 [协程](mds/high/3.0、协程.md)
 
