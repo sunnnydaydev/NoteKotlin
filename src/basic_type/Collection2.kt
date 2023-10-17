@@ -40,4 +40,11 @@ fun main() {
         println("mutableListOf1:${it}")
     }
 
+    val iterableList  =  listOf("1","2","3")
+    val  iterator = iterableList.toMutableList().listIterator()
+     iterator.next() //默认当前元素为首个元素，调用next后当前元素指向"2"
+     iterator.add("test") // 此时集合为"1","test"，"2","3",当前元素还是指向"2"
+     println("current:${iterator.next()}") //此时应打印"2",然后当前元素指向3
+
+
 }
