@@ -19,6 +19,53 @@ fun main() {
         .take(4)
 
     println("Lengths of first 4 words longer than 3 chars")
-// 末端操作：获取结果。
+    // 末端操作：获取结果。
     println(lengthsSequence.toList())
+
+    val list = listOf(1, 3, 5)
+    println(
+        "result:${
+            list.mapNotNull {
+                if (it == 3) {
+                    "null" //空值会被过滤掉
+                } else {
+                    it
+                }
+            }
+        }"
+    )
+
+    val colors = listOf("name", "age", "sex")
+    val animals = listOf("Carry", "20", "boy")
+    println(colors.zip(animals)) // colors zip animals
+
+    // unzip:zip的反向操作，返回一个Pair对象pair的key value是两个集合。
+    // Pair<List<T>, List<R>>
+    val numberPairs = listOf("name" to "Carry", "age" to "20", "sex" to "boy")
+    println(numberPairs.unzip())
+    // ([name, age, sex], [Carry, 20, boy])
+
+    val numbers = listOf("one", "one", "three", "four")
+    println(numbers.associateWith { it.length })
+
+    println(numbers.associateBy {
+        it.first().uppercase()//取string的收个字符作为key
+    })
+    //{O=one, T=three, F=four}
+
+    // 还可以分别变换key value
+    println(numbers.associateBy(keySelector = {
+        "${it.lowercase()}"
+    }, valueTransform = {
+        "${it.uppercase()}"
+    }))
+    //{one=ONE, three=THREE, four=FOUR}
+
+    val names = listOf("Alice Adams", "Brian Brown", "Clara Campbell")
+    println(names.associate {
+        Pair(it.first(),it.length)
+    })
+
+    val numberSets = listOf(setOf(1, 2, 3), setOf(4, 5, 6), setOf(1, 2))
+    println(numberSets.flatten())
 }
