@@ -35,6 +35,10 @@ fun main() {
         }"
     )
 
+    list.map {
+
+    }
+
     val colors = listOf("name", "age", "sex")
     val animals = listOf("Carry", "20", "boy")
     println(colors.zip(animals)) // colors zip animals
@@ -63,9 +67,23 @@ fun main() {
 
     val names = listOf("Alice Adams", "Brian Brown", "Clara Campbell")
     println(names.associate {
-        Pair(it.first(),it.length)
+        Pair(it.first(), it.length)
     })
 
     val numberSets = listOf(setOf(1, 2, 3), setOf(4, 5, 6), setOf(1, 2))
     println(numberSets.flatten())
+
+    val allStudent = arrayListOf(
+        Student(arrayListOf("普通班:张三", "普通班:李四")),
+        Student(arrayListOf("优秀班:carry", "优秀班:kate"))
+    )
+
+    val flatMapResult = allStudent.flatMap {
+        it.list
+    }
+    println(flatMapResult)
 }
+
+data class Student(
+    val list: List<String> = arrayListOf()
+)
