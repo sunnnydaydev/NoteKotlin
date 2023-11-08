@@ -82,6 +82,11 @@ fun main() {
         it.list
     }
     println(flatMapResult)
+
+    val li = listOf("a","b","c",'d',null,1)
+    println(li.filterIsInstance<String>())
+    //[a, b, c]
+
 }
 
 data class Student(
