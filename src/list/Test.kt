@@ -83,9 +83,21 @@ fun main() {
     }
     println(flatMapResult)
 
-    val li = listOf("a","b","c",'d',null,1)
+    val li = listOf("a", "b", "c", 'd', null, 1)
     println(li.filterIsInstance<String>())
     //[a, b, c]
+
+    val partitionList = arrayListOf(1, 2, 3, 4, 5)
+    val (keyList, valueList) = partitionList.partition {
+        it % 2 == 0
+    }
+    println(keyList) // [2, 4]
+    println(valueList)//   [1, 3, 5]
+
+    val wordList = arrayListOf("my name is tom")
+    println(wordList.any {
+        it.contains("m")
+    })
 
 }
 
