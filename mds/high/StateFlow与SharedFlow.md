@@ -78,8 +78,8 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
-负责更新 MutableStateFlow 的类是提供方，从 StateFlow 收集的所有类都是使用方。与使用 flow 构建器构建的冷数据流不同，StateFlow 是热数据流：
-从数据流收集数据不会触发任何提供方代码。StateFlow 始终处于活跃状态并存于内存中，而且只有在垃圾回收根中未涉及对它的其他引用时，它才符合垃圾回收条件。
+负责更新 MutableStateFlow 的类是提供方，从 StateFlow 收集的所有类都是使用方。与使用 flow 构建器构建的冷数据流不同，StateFlow 是热
+数据流。从数据流收集数据不会触发任何提供方代码。StateFlow 始终处于活跃状态并存于内存中，而且只有在垃圾回收根中未涉及对它的其他引用时，它才符合垃圾回收条件。
 
 当新使用方开始从数据流中收集数据时，它将接收信息流中的最近一个状态及任何后续状态
 
