@@ -77,6 +77,8 @@
 
 [Flow](mds/high/4、Flow1.md)
 
+[StateFlow与SharedFlow](mds/high/StateFlow与SharedFlow.md)
+
 
 # 参考
 
