@@ -452,6 +452,14 @@ class Animal {
 
 # The end
 
+相关总结
+
+[Kotlin高阶函数收获](./Kotlin高阶函数收获.md)
+
+[Kotlin高阶函数的应用](./Kotlin高阶函数的应用.md)
+
+[Kotlin高阶函数总结](./Kotlin高阶函数总结.md)
+
 
 
 

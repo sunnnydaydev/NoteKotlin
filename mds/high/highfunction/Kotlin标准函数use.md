@@ -1,4 +1,4 @@
-# Kotlin标准函数 use
+# Kotlin标准函数use
 
 ###### 1、函数主要功能：
 
@@ -8,7 +8,7 @@
 
 这个方法的使用对象有点特殊，此方法可以被任意Closeable实现类的对象使用，其他的对象无法使用。使用方式如下：
 
-```java
+```kotlin
 /**
  * Executes the given [block] function on this resource and then closes it down correctly whether an    exception is thrown or not.  
  * @param block a function to process this [Closeable] resource.
@@ -43,9 +43,9 @@ public inline fun <T : Closeable?, R> T.use(block: (T) -> R): R {
 }
 ```
 
-###### 3、如何使用？？？ 很简单
+###### 3、如何使用
 
-```java
+```kotlin
     reader.use { //这里reader可为任意Closeable实现类对象
         // todo 自己的逻辑处理
     }
@@ -55,7 +55,7 @@ public inline fun <T : Closeable?, R> T.use(block: (T) -> R): R {
 
 BufferedReader这个类实现了Closeable接口，并且在close中进行了资源关闭处理。这里就拿这个类进行下练习：
 
-```java
+```kotlin
 
 /**
  * Create by SunnyDay on 16:45 2022/01/08
@@ -87,14 +87,14 @@ fun abs.main() {
 
 
 
-###### 5、用途有哪些？？？？
+###### 5、用途有哪些
 
 - 通过文件读取操作我们就可以明显的看出use的优势了，假如我们自己写“读操作”这时就需要自己写try、catch来捕获异常，然后funally中各种判断来关闭资源。使用use方法简洁省事很多。
 - kt的File相关类提供了好多扩展函数，这些扩展函数几乎都使用了use进行封装。use的出现更加简化文件操作。
 
 还是上面读取文件栗子，用File#readLines（） 扩展函数来操作读取文件：
 
-```java
+```kotlin
     // readLines() 是file的扩展函数，源码最终还是调用Reader的forEachLine
     File("F://test.txt")
         .readLines() 

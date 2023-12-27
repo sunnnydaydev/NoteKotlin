@@ -1,8 +1,11 @@
-# Kotlin标准函数 let，with，run，apply
+# Kotlin标准函数
+
+- let
+- with
+- run
+- apply
 
 > Standard.kt文件中定义了一些函数，任何kt代码都可以自由的调用，故这些函数被称为标准函数。
-
-
 
 # 本节目的
 
@@ -17,7 +20,7 @@
 
 （1）语法
 
-```java
+```kotlin
 // 语法(student为任意对象，任意对象都有这个let方法)
 student.let{
     //todo code.
@@ -34,7 +37,7 @@ student.let{
 
 有如下代码：
 
-```java
+```kotlin
 /**
  * Create by SunnyDay on 20:20 2022/01/01
  */
@@ -55,7 +58,7 @@ fun study1(student: Student?) {
 
 kt中的?.可使用if语句替换。对study1中的代码进行“精确”替换：
 
-```java
+```kotlin
 fun study2(student: Student?) {
 
     if (student != null) {
@@ -69,7 +72,7 @@ fun study2(student: Student?) {
 
 上述的代码太重复，我们进行优化：
 
-```java
+```kotlin
 fun study3(student: Student?) {
     // 使用if 语句对study2 进行优化
     if (student != null) {
@@ -89,7 +92,7 @@ emmm，优化后的两种方式看着都比较简洁呀，为啥还多次一举�
 
 我们看这个例子：
 
-```java
+```kotlin
 class Student(private var name:String?) {
 
     fun doHomework(){}
@@ -116,7 +119,7 @@ if的弊端就出来了，对成员变量进行判空后，操作成员变量时
 
 kotlin的空指针避免工作做的是十分完善的，kotlin认为，kotlin认为，kotlin认为，多线程中，name还是有可能被其他线程修改的风险，就有可能会出现空指针。所以kotlin中想使用上述代码仅仅使用if 判断是不行的还需要“依次”进行非空断言：
 
-```java
+```kotlin
     fun changeName() {
         if (name != null) {
             val code = name!!.substring(0)
@@ -127,7 +130,7 @@ kotlin的空指针避免工作做的是十分完善的，kotlin认为，kotlin�
 
 这时我们看看let的优势：
 
-```java
+```kotlin
     fun changeName() {
         name?.let {
             // 不需要依次非空断言
@@ -143,7 +146,7 @@ kotlin的空指针避免工作做的是十分完善的，kotlin认为，kotlin�
 
 （1）语法
 
-```java
+```kotlin
    val  result = with(obj){// obj 为任意对象
          // lambda表达式无参数，lambda表达式方法体中具有obj上下文环境
          // todo code
@@ -161,9 +164,9 @@ kotlin的空指针避免工作做的是十分完善的，kotlin认为，kotlin�
 
 - 连续调用同一个对象的多个方法时让代码变得更加简洁。
 
-​    有如下字符串拼接栗子：
+有如下字符串拼接栗子：
 
-```java
+```kotlin
     val sb = StringBuilder()
     sb.append("Http")
     sb.append(":")
@@ -174,7 +177,7 @@ kotlin的空指针避免工作做的是十分完善的，kotlin认为，kotlin�
 
 可见每次都需要使用sb对象调用（这里由于StringBuilder特殊提供了build链式调用我们也可以直接链式调用）对象的方法优点繁琐，若使用with则代码如下：
 
-```java
+```kotlin
    val result = with(StringBuilder()){
        append("Http")
        append(":")
@@ -194,7 +197,7 @@ kotlin的空指针避免工作做的是十分完善的，kotlin认为，kotlin�
 
 （1）语法
 
-```java
+```kotlin
     val result = obj.run {
           // lambda表达式无参数，lambda表达式方法体中具有obj上下文环境
          // todo code
@@ -204,7 +207,7 @@ kotlin的空指针避免工作做的是十分完善的，kotlin认为，kotlin�
 
 with的栗子我们改写成run：
 
-```java
+```kotlin
     val result = StringBuilder().run {
         append("Http")
         append(":")
@@ -220,7 +223,7 @@ with的栗子我们改写成run：
 
 （1）语法
 
-```java
+```kotlin
     val result = obj.apply {
           // lambda表达式无参数，lambda表达式方法体中具有obj上下文环境
          // todo code
@@ -231,7 +234,7 @@ with的栗子我们改写成run：
 
 
 
-```java
+```kotlin
     val result = StringBuilder().apply {
         append("Http")
         append(":")
@@ -260,7 +263,7 @@ with的栗子我们改写成run：
 
 ###### 1、run 源码
 
-```java
+```kotlin
 @kotlin.internal.InlineOnly
 public inline fun <T, R> T.run(block: T.() -> R): R {
     contract {
@@ -284,7 +287,7 @@ public inline fun <T, R> T.run(block: T.() -> R): R {
 
 ###### 2、自定义
 
-```java
+```kotlin
 /**
  * Create by SunnyDay on 10:29 2022/01/03
  */

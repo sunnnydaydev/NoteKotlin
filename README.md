@@ -18,9 +18,9 @@
 
 [返回与跳转](mds/basic/8、返回与跳转.md)
 
-[集合](mds/basic/8、集合.md)
+[集合](mds/basic/9、集合.md)
 
-[泛型](mds/basic/泛型.md)
+[泛型](mds/basic/10、泛型.md)
 
 
 
@@ -38,46 +38,38 @@
 
 [数据类dataClass](mds/clazz/6、数据类dataClass.md)
 
-[kotlin的equals方法](mds/clazz/kotlin的equals方法.md)
+[密封类sealedClass](mds/clazz/7、密封类sealedClass.md)
 
 [object关键字](mds/clazz/8、object关键字.md)
 
-[密封类sealedClass](mds/clazz/7、密封类sealedClass.md)
+[内部类](mds/clazz/9、kt内部类.md)
 
-[内部类](mds/clazz/10、kt内部类.md)
+[Kotlin委托](mds/clazz/10、Kotlin委托.md)
 
-[内联类](mds/clazz/内联类.md)
+[Nothing类](mds/clazz/11、Nothing类.md)
 
-[Kotlin委托](mds/clazz/11、Kotlin委托.md)
+[kotlin的equals方法](mds/clazz/12、kotlin的equals方法.md)
 
-[Nothing类](mds/clazz/12、Nothing类.md)
-
+[内联类](mds/clazz/13、内联类.md)
 
 
 # 三、高阶
 
-[高阶函数](mds/high/1.0、高阶函数.md)
+[高阶函数](mds/high/highfunction/Kotlin高阶函数.md)
 
-[Kotlin高阶函数收获](mds/high/1.1、Kotlin高阶函数收获.md)
+[Kotlin标准函数](mds/high/highfunction/Kotlin标准函数总结.md)
 
-[Kotlin高阶函数的应用](mds/high/1.2、Kotlin高阶函数的应用.md)
-
-[Kotlin高阶函数总结](mds/high/1.3、Kotlin高阶函数总结.md)
-
-
-[Kotlin标准函数let,with,run,apply](mds/high/2.0、Kotlin标准函数：let,with,run,apply.md)
-
-[Kotlin标准函数use](mds/high/2.1、Kotlin标准函数：use.md)
+[Kotlin标准函数use](mds/high/highfunction/Kotlin标准函数use.md)
 
 [内联函数](mds/high/内联函数.md)
 
-[协程](mds/high/3.0、协程.md)
+[协程](mds/high/coroutines/协程.md)
 
-[协程小结](mds/high/3.1、协程小结.md)
+[协程小结](mds/high/coroutines/协程小结.md)
 
-[Flow](mds/high/4、Flow1.md)
+[Flow](mds/high/flow/Flow1.md)
 
-[StateFlow与SharedFlow](mds/high/StateFlow与SharedFlow.md)
+[StateFlow与SharedFlow](mds/high/flow/StateFlow与SharedFlow.md)
 
 
 # 参考

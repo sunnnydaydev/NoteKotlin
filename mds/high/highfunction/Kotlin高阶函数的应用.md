@@ -286,4 +286,3 @@ class MainActivity : AppCompatActivity() {
 
 看到网上好多高阶函数实践的，如sp 简化、ContentValue简化，还有结合扩展函数应用的，可以借鉴研究下~
 
-[高阶函数&Lambda回顾可参考这里](https://github.com/sunnnydaydev/LearnKotlin/blob/master/mds/18、高阶函数.md)
