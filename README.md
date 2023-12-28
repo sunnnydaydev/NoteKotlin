@@ -61,11 +61,7 @@
 
 [Kotlin标准函数use](mds/high/highfunction/Kotlin标准函数use.md)
 
-[内联函数](mds/high/内联函数.md)
-
 [协程](mds/high/coroutines/协程.md)
-
-[协程小结](mds/high/coroutines/协程小结.md)
 
 [Flow](mds/high/flow/Flow1.md)
 
