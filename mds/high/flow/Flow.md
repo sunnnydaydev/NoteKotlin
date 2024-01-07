@@ -77,6 +77,7 @@ public fun <T> flowOf(vararg elements: T): Flow<T> = flow {
 ```kotlin
 listOf("hello", "kotlin", "flow").asFlow()
 ```
+
 还是对flow{}的封装
 
 ```kotlin
@@ -93,14 +94,11 @@ public fun <T> Iterable<T>.asFlow(): Flow<T> = flow {
 val emptyFlow = emptyFlow<Int>()
 ```
 
-
-
 # Flow 的操作符
 
 Flow和RxJava一样，用各种操作符撑起了异步数据流框架的半边天，Flow默认为冷流，下游有消费时，才执行生产操作。
 
 因此操作符也被分为两类：中间操作符和末端操作符。中间操作符不会产生消费行为，返回依然为Flow，而末端操作符，会产生消费行为，即触发流的生产。
-
 
 ###### 1、末端操作符
 
@@ -137,25 +135,24 @@ lifecycleScope.launch {
 
 collectLatest 用于collect最新数据，官方文档这样解释
 
-The crucial difference from collect is that when the original flow emits a new value then the action block for the previous value is cancelled.
+The crucial difference from collect is that when the original flow emits a new value then the action block for the
+previous value is cancelled.
 
 ```kotlin
-val flow = flow {
-    for (i in 1..3) {
-        println("my-test emit $i")
-        emit(i)
-    }
+flow {
+    emit(1)
+    delay(50)
+    emit(2)
+}.collectLatest { value ->
+    println("Collecting $value")
+    delay(100) // Emulate work
+    println("$value collected")
 }
-flow
-    .collectLatest { value ->
-        delay(1)
-        println("my-test Collecting $value")
-    }
 /**
-I  my-test emit 1
-I  my-test emit 2
-I  my-test emit 3
-I  my-test Collecting 3
+"Collecting 1,
+Collecting 2,
+2 collected"
+如上emit(1)发送后50ms又emit(2)此时collectLatest中emit(1)要等100ms才能处理，此时emit(2)也到了emit(1)就不处理了直接取消。
  * */
 ```
 
@@ -210,7 +207,6 @@ public suspend fun <T> Flow<T>.lastOrNull(): T? {
 
 first用法与之类似
 
-
 ###### 2、状态操作符
 
 状态操作符不做任何修改，只是在合适的节点返回状态。
@@ -226,7 +222,6 @@ first用法与之类似
 (5) onEmpty 流中未产生任何数据时调用
 
 (6)retry、retryWhen 在发生异常时进行重试，retryWhen中可以拿到异常和当前重试的次数
-
 
 ```kotlin
 val flow = flow {
@@ -247,7 +242,7 @@ I  my-test: onStart
 I  my-test: onEach:1
 I  my-test: collect:1
 I  my-test: onCompletion
-* */
+ * */
 ```
 
 很简单onStart首先被调用，onCompletion最后被调用。onEach则是没个元素emit之前被调用。
@@ -269,12 +264,12 @@ I  my-test: onCompletion:java.lang.IllegalArgumentException
 I  my-test: catch:java.lang.IllegalArgumentException
  * */
 ```
+
 其实onCompletion也是能捕获异常的，但这里需要注意一点onCompletion要在catch之前调用。
 
 原因是为了保证异常的正确处理。如果catch在onCompletion之前调用，当流中发生异常时，catch会捕获异常并执行相应的处理，然后流程将被视为已完成。这时，onCompletion将不会再执行，因为流程已经结束。
 
 如果onCompletion在catch之前调用，那么即使在流程中发生异常，onCompletion仍然会被执行。这样，你可以确保无论流程是否正常完成或发生异常，都能执行一些清理或收尾工作。
-
 
 retry lambda 返回值为true代表一直重试，
 
@@ -314,11 +309,12 @@ I  my-test: collect:1
 
 重试条件不满足，触发异常捕获，跳到catch中
 I  my-test: retry:2
-I  my-test: catch:java.lang.IllegalArgumentException 
+I  my-test: catch:java.lang.IllegalArgumentException
  * */
 ```
 
 onEmpty的使用就简单了，上游无任何数据emit就会回调这个方法：
+
 ```kotlin
 emptyFlow<Int>().onEmpty {
     println("my-test:onEmpty")
@@ -338,7 +334,7 @@ emptyFlow<Int>().onEmpty {
 private suspend fun test4() {
     flowOf(1, 2, 3).map {
         it * it
-    }.collect{
+    }.collect {
         println("my-test:collect:$it")
     }
 }
@@ -367,6 +363,7 @@ public inline fun <T, R> Flow<T>.transform(
     }
 }
 ```
+
 这里注意了transform方法的的参数也是高阶函数，只不过函数是FlowCollector<R>的拓展函数。返回值类型也为Flow<R>
 
 因此我们需要在高阶函数中emit(R)即可。
@@ -387,7 +384,7 @@ flowOf(1, 2, 3).filter {
 /**
 my-test:collect:1
 my-test:collect:3
-* */
+ * */
 ```
 
 - drop(n) 丢弃前n个元素
@@ -407,7 +404,6 @@ flowOf(1, 2, 3).takeWhile {
 - distinctUntilChangedBy：去重操作符，可以按照指定类型的参数进行去重
 - debounce：操作符用于防抖，指定时间内的值只接收最新的一个
 - sample：操作符与debounce操作符有点像，但是却限制了一个周期性时间，sample操作符获取的是一个周期内的最新的数据，可以理解为debounce操作符增加了周期的限制
-
 
 ###### 5、组合操作符
 
@@ -429,6 +425,7 @@ combined.collect { value -> println(value) }
 3C
  * */
 ```
+
 numbers和letters是两个不同的流。使用combine函数，我们将它们组合成一个新的流combined，并且通过提供的lambda表达式将它们的值合并在一起。在这个例子中，新流combined会在numbers或letters中的任一流发射新值时触发，并使用最新的值调用提供的lambda表达式。
 
 这个貌似不好理解我们可以看这个例子：
@@ -436,9 +433,9 @@ numbers和letters是两个不同的流。使用combine函数，我们将它们�
 ```kotlin
 val flow1 = flowOf(1, 2)
 val flow2 = flowOf("a", "b", "c")
-flow1.combine(flow2){ num, str ->
+flow1.combine(flow2) { num, str ->
     "$num$str"
-}.collect{
+}.collect {
     println("my-test:collect:$it")
 }
 
@@ -449,15 +446,15 @@ my-test:collect:2b
 my-test:collect:2c
  * */
 ```
-可以发现，当两个Flow数量不同时，始终由Flow1开始，用其最新的元素，与Flow2的最新的元素进行组合，形成新的元素。
 
+可以发现，当两个Flow数量不同时，始终由Flow1开始，用其最新的元素，与Flow2的最新的元素进行组合，形成新的元素。
 
 merge操作符用于将多个流合并，类似集合的展平
 
 ```kotlin
 val flow1 = flowOf(1, 2)
 val flow2 = flowOf("a", "b", "c")
-listOf(flow1,flow2).merge().collect{
+listOf(flow1, flow2).merge().collect {
     println("my-test:collect:$it")
 }
 /***
@@ -468,14 +465,15 @@ my-test:collect:b
 my-test:collect:c
  * */
 ```
+
 zip操作符会分别从两个流中取值，当一个流中的数据取完，zip过程就完成了
 
 ```kotlin
 val flow1 = flowOf(1, 2)
 val flow2 = flowOf("a", "b", "c")
-flow1.zip(flow2){ num, str ->
+flow1.zip(flow2) { num, str ->
     "$num$str"
-}.collect{
+}.collect {
     println("my-test:collect:$it")
 }
 /***
@@ -483,6 +481,7 @@ my-test:collect:1a
 my-test:collect:2b
  * */
 ```
+
 # Flow 的线程切换
 
 在Flow中，可以简单的使用flowOn来指定线程的切换，flowOn会对上游，以及flowOn之前的所有操作符生效
@@ -497,8 +496,8 @@ flow.map {
     it.toString()
 }.flowOn(Dispatchers.IO)
     .collect {
-    println("my-test: collect:${Thread.currentThread().name}")
-}
+        println("my-test: collect:${Thread.currentThread().name}")
+    }
 
 /***
 my-test: map:DefaultDispatcher-worker-2
@@ -506,6 +505,7 @@ my-test: flow:DefaultDispatcher-worker-2
 my-test: collect:main
  * */
 ```
+
 这个🌰很简单，也验证了flowOn会对上游，以及flowOn之前的所有操作符生效。
 
 接下来我们再看个🌰
@@ -530,10 +530,10 @@ my-test: map:DefaultDispatcher-worker-3
 my-test: collect:main
  * */
 ```
+
 此时flow{} 是跑在了UI线程的，这样我们了解到：
 
 flowOn会对上游，以及flowOn之前的所有操作符生效，但flowOn不会影响其他flowOn的作用域。
-
 
 # Flow 的取消
 
@@ -541,27 +541,28 @@ Flow的取消，实际上就是依赖于协程的取消，看个简单的🌰
 
 ```kotlin
         lifecycleScope.launch {
-            withTimeoutOrNull(3000){
-                flow{
-                    delay(1000)
-                    emit(1)
-                    delay(1000)
-                    emit(2)
-                    delay(1000)
-                    emit(3)
-                    delay(1000)
-                    emit(4)
-                }.collect{
-                    println("my-test:collect:$it")
-                }
-            }
+    withTimeoutOrNull(3000) {
+        flow {
+            delay(1000)
+            emit(1)
+            delay(1000)
+            emit(2)
+            delay(1000)
+            emit(3)
+            delay(1000)
+            emit(4)
+        }.collect {
+            println("my-test:collect:$it")
         }
+    }
+}
 
 /**
 my-test:collect:1
 my-test:collect:2
  * */
 ```
+
 如上，使用了withTimeoutOrNull，当代码块内执行的时间超时就触发了协程的取消，此时flow也就被取消了。因此我们只能collect两个值
 
 # The end
