@@ -14,4 +14,9 @@ fun main(){
     val generic1 = Generic(1)
     val generic2 = Generic("1")
     val generic3 = Generic(Dog())
+
+    val map = mapOf("name" to "Tom")
+
+    val numbers = listOf("one", "two", "three", "four")
+    println(numbers.associateWith { 1})
 }
