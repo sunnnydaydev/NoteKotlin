@@ -3,7 +3,11 @@ package basic_type
 /**
  * Create by SunnyDay 2023/06/03 17:44:09
  **/
-class Generic<T>(t:T)
+class Generic<T>(private val t:T){
+    fun printT(){
+        println("t:${t}")
+    }
+}
 class Dog
 
 fun main(){
